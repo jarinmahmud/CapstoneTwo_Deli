@@ -7,7 +7,6 @@ public class Order {
     private List<Drink> drinks;
     private List<Chip> chips;
 
-    // Constructor
     public Order(List<Sandwich> sandwiches, List<Drink> drinks, List<Chip> chips) {
         this.sandwiches = sandwiches;
         this.drinks = drinks;
@@ -28,39 +27,20 @@ public class Order {
         return total;
     }
 
-    public List<Sandwich> getSandwiches() {
-        return sandwiches;
-    }
-
-    public void setSandwiches(List<Sandwich> sandwiches) {
-        this.sandwiches = sandwiches;
-    }
-
-    public List<Chip> getChips() {
-        return chips;
-    }
-
-    public void setChips(List<Chip> chips) {
-        this.chips = chips;
-    }
-
-    public List<Drink> getDrinks() {
-        return drinks;
-    }
-
-    public void setDrinks(List<Drink> drinks) {
-        this.drinks = drinks;
-    }
-
     @Override
     public String toString() {
-        return "Order{" +
-                "sandwiches=" + sandwiches +
-                ", drinks=" + drinks +
-                ", chips=" + chips +
-                '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append("Order Details:\n");
+        for (Sandwich sandwich : sandwiches) {
+            sb.append(sandwich.toString()).append("\n");
+        }
+        for (Drink drink : drinks) {
+            sb.append(drink.toString()).append("\n");
+        }
+        for (Chip chip : chips) {
+            sb.append(chip.toString()).append("\n");
+        }
+        sb.append("Total Price: $").append(String.format("%.2f", calculateTotalPrice())).append("\n");
+        return sb.toString();
     }
-
-    // Getters and toString() method
 }
-

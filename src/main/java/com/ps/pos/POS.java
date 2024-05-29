@@ -1,5 +1,7 @@
 package com.ps.pos;
 
+import com.ps.menu.*;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -24,9 +26,21 @@ public class POS implements POSInterface {
 
         boolean moreSandwiches = true;
         while (moreSandwiches) {
-            System.out.println("Customizing sandwich...");
-            Sandwich sandwich = createSandwich();
-            sandwiches.add(sandwich);
+            System.out.println("1) Create a custom sandwich");
+            System.out.println("2) Choose a signature sandwich");
+            int choice = scanner.nextInt();
+            Sandwich sandwich = null;
+            if (choice == 1) {
+                sandwich = createSandwich();
+            } else if (choice == 2) {
+                sandwich = chooseSignatureSandwich();
+                if (sandwich != null) {
+                    customizeSandwich(sandwich);
+                }
+            }
+            if (sandwich != null) {
+                sandwiches.add(sandwich);
+            }
 
             System.out.println("Would you like to add another sandwich? (yes/no)");
             moreSandwiches = scanner.next().equalsIgnoreCase("yes");
@@ -36,8 +50,7 @@ public class POS implements POSInterface {
         while (moreDrinks) {
             System.out.println("Would you like to add a drink? (yes/no)");
             if (scanner.next().equalsIgnoreCase("yes")) {
-                Drink drink = createDrink();
-                drinks.add(drink);
+                drinks.add(createDrink());
             } else {
                 moreDrinks = false;
             }
@@ -47,8 +60,7 @@ public class POS implements POSInterface {
         while (moreChips) {
             System.out.println("Would you like to add chips? (yes/no)");
             if (scanner.next().equalsIgnoreCase("yes")) {
-                Chip chip = createChip();
-                chips.add(chip);
+                chips.add(createChip());
             } else {
                 moreChips = false;
             }
@@ -58,49 +70,65 @@ public class POS implements POSInterface {
     }
 
     private Sandwich createSandwich() {
-        // Implement sandwich creation logic with user input for size, bread, toppings, etc.
-        // Use scanner to take user inputs and create a Sandwich object
+        // Implement sandwich creation logic
+        return null;
+    }
+
+    private Sandwich chooseSignatureSandwich() {
+        System.out.println("Choose a signature sandwich:");
+        System.out.println("1) BLT");
+        System.out.println("2) Philly Cheese Steak");
+        int choice = scanner.nextInt();
+        switch (choice) {
+            case 1:
+                return new BLTSandwich();
+            case 2:
+                return new PhillyCheeseSteakSandwich();
+            default:
+                System.out.println("Invalid choice. Returning to menu.");
+                return null;
+        }
+    }
+
+    private void customizeSandwich(Sandwich sandwich) {
+        // Implement sandwich customization logic
     }
 
     private Drink createDrink() {
-        // Implement drink creation logic with user input for name and price
+        System.out.println("Enter drink size (small, medium, large):");
+        String size = scanner.next();
+        System.out.println("Enter drink flavor:");
+        String flavor = scanner.next();
+        return new Drink(size, flavor);
     }
 
     private Chip createChip() {
-        // Implement chip creation logic with user input for name and price
+        System.out.println("Enter chip type:");
+        String type = scanner.next();
+        return new Chip(type);
     }
 
     @Override
     public void processPayment() {
-        // Implement payment processing logic
-        System.out.println("Processing payment...");
+        System.out.println(currentOrder);
+        System.out.println("Confirm order? (yes/no):");
+        if (scanner.next().equalsIgnoreCase("yes")) {
+            printReceipt();
+            System.out.println("Order confirmed.");
+        } else {
+            System.out.println("Order cancelled.");
+        }
     }
 
     @Override
     public void printReceipt() {
-        String dateTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss"));
-        String receiptFileName = "receipts/" + dateTime + ".txt";
-
-        try (FileWriter writer = new FileWriter(receiptFileName)) {
-            writer.write("Order Receipt\n");
-            writer.write("====================\n");
-            for (Sandwich sandwich : currentOrder.getSandwiches()) {
-                writer.write(sandwich.toString() + "\n");
-            }
-            for (Drink drink : currentOrder.getDrinks()) {
-                writer.write(drink.toString() + "\n");
-            }
-            for (Chip chip : currentOrder.getChips()) {
-                writer.write(chip.toString() + "\n");
-            }
-            writer.write("====================\n");
-            writer.write("Total Price: $" + currentOrder.calculateTotalPrice() + "\n");
-            System.out.println("Receipt saved to " + receiptFileName);
+        String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss"));
+        String filename = "receipts/" + timestamp + ".txt";
+        try (FileWriter writer = new FileWriter(filename)) {
+            writer.write(currentOrder.toString());
         } catch (IOException e) {
-            System.err.println("Error writing receipt: " + e.getMessage());
+            e.printStackTrace();
         }
     }
-
-    public static void main(String[] args) {
-        POS posSystem = new POS
+}
 

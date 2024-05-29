@@ -1,4 +1,8 @@
 package com.ps.pos;
 
-public class POSInterface {
+public interface POSInterface {
+    void takeOrder();
+    void processPayment();
+    void printReceipt();
 }
+

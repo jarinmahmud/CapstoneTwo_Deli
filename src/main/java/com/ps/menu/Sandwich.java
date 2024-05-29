@@ -1,5 +1,6 @@
 package com.ps.menu;
 
+
 import java.util.List;
 
 public class Sandwich {
@@ -11,7 +12,6 @@ public class Sandwich {
     private double basePrice;
     private double extraCost;
 
-    // Constructor
     public Sandwich(String size, String breadType, List<String> regularToppings, List<String> premiumToppings, boolean isToasted) {
         this.size = size;
         this.breadType = breadType;
@@ -22,7 +22,6 @@ public class Sandwich {
         this.extraCost = calculateExtraCost();
     }
 
-    // Calculate base price based on size
     private double calculateBasePrice(String size) {
         switch (size) {
             case "4":
@@ -36,7 +35,6 @@ public class Sandwich {
         }
     }
 
-    // Calculate extra cost based on premium toppings
     private double calculateExtraCost() {
         double extraCost = 0;
         for (String topping : premiumToppings) {
@@ -66,7 +64,6 @@ public class Sandwich {
         return extraCost;
     }
 
-    // Helper method to get premium topping cost
     private double getPremiumToppingCost(String size, double cost4, double cost8, double cost12) {
         switch (size) {
             case "4":
@@ -84,75 +81,11 @@ public class Sandwich {
         return basePrice + extraCost;
     }
 
-    public String getSize() {
-        return size;
-    }
-
-    public void setSize(String size) {
-        this.size = size;
-    }
-
-    public String getBreadType() {
-        return breadType;
-    }
-
-    public void setBreadType(String breadType) {
-        this.breadType = breadType;
-    }
-
-    public List<String> getRegularToppings() {
-        return regularToppings;
-    }
-
-    public void setRegularToppings(List<String> regularToppings) {
-        this.regularToppings = regularToppings;
-    }
-
-    public List<String> getPremiumToppings() {
-        return premiumToppings;
-    }
-
-    public void setPremiumToppings(List<String> premiumToppings) {
-        this.premiumToppings = premiumToppings;
-    }
-
-    public boolean isToasted() {
-        return isToasted;
-    }
-
-    public void setToasted(boolean toasted) {
-        isToasted = toasted;
-    }
-
-    public double getBasePrice() {
-        return basePrice;
-    }
-
-    public void setBasePrice(double basePrice) {
-        this.basePrice = basePrice;
-    }
-
-    public double getExtraCost() {
-        return extraCost;
-    }
-
-    public void setExtraCost(double extraCost) {
-        this.extraCost = extraCost;
-    }
-
     @Override
     public String toString() {
-        return "Sandwich{" +
-                "size='" + size + '\'' +
-                ", breadType='" + breadType + '\'' +
-                ", regularToppings=" + regularToppings +
-                ", premiumToppings=" + premiumToppings +
-                ", isToasted=" + isToasted +
-                ", basePrice=" + basePrice +
-                ", extraCost=" + extraCost +
-                '}';
+        return String.format("Size: %s\", Bread: %s, Toppings: %s, Premium Toppings: %s, Toasted: %b, Price: $%.2f",
+                size, breadType, regularToppings.toString(), premiumToppings.toString(), isToasted, getTotalPrice());
     }
 
-    // Getters and setters
+    // Getters and setters omitted for brevity
 }
-
