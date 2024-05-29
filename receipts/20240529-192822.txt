@@ -1,0 +1,3 @@
+Order Details:
+Size: 12", Bread: wheat, Toppings: [pickles, ranch], Premium Toppings: [ham], Toasted: false, Price: $11.50
+Total Price: $11.50

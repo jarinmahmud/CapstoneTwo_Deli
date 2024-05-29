@@ -2,6 +2,7 @@ package com.ps.pos;
 
 import com.ps.menu.*;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -176,7 +177,15 @@ public class POS implements POSInterface {
     @Override
     public void printReceipt() {
         String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss"));
-        String filename = "receipts.txt";
+        String directoryPath = "receipts";
+        String filename = directoryPath + "/" + timestamp + ".txt";
+
+        // Create the receipts directory if it doesn't exist
+        File directory = new File(directoryPath);
+        if (!directory.exists()) {
+            directory.mkdirs();
+        }
+
         try (FileWriter writer = new FileWriter(filename)) {
             writer.write(currentOrder.toString());
         } catch (IOException e) {
