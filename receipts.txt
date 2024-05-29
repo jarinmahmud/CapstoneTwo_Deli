@@ -1,0 +1,5 @@
+Order Details:
+Size: 8", Bread: white, Toppings: [lettuce, tomato], Premium Toppings: [bacon, cheddar], Toasted: true, Price: $10.50
+Drink Size: small, Flavor: cherry, Price: $2.00
+Chip Type: potato, Price: $1.50
+Total Price: $14.00
