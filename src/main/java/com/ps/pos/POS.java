@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -70,9 +71,61 @@ public class POS implements POSInterface {
     }
 
     private Sandwich createSandwich() {
-        // Implement sandwich creation logic
-        return null;
+        scanner.nextLine();  // Consume the newline character left over from previous input
+
+        // Select bread type
+        System.out.println("Select your bread type (white, wheat, rye, wrap):");
+        String breadType = scanner.nextLine();
+
+        // Select sandwich size
+        System.out.println("Select sandwich size (4, 8, 12):");
+        String size = scanner.nextLine();
+
+        // Select regular toppings
+        List<String> regularToppings = new ArrayList<>();
+        System.out.println("Select your regular toppings (lettuce, peppers, onions, tomatoes, jalapenos, cucumbers, pickles, guacamole, mushrooms). Type 'done' when finished:");
+        while (true) {
+            String topping = scanner.nextLine();
+            if (topping.equalsIgnoreCase("done")) break;
+            if (Arrays.asList("lettuce", "peppers", "onions", "tomatoes", "jalapenos", "cucumbers", "pickles", "guacamole", "mushrooms").contains(topping.toLowerCase())) {
+                regularToppings.add(topping);
+            } else {
+                System.out.println("Invalid topping. Please choose a valid regular topping or type 'done' to finish:");
+            }
+        }
+
+        // Select premium toppings
+        List<String> premiumToppings = new ArrayList<>();
+        System.out.println("Select your premium toppings (steak, ham, salami, roast beef, chicken, bacon, american, provolone, cheddar, swiss, extra meat, extra cheese). Type 'done' when finished:");
+        while (true) {
+            String topping = scanner.nextLine();
+            if (topping.equalsIgnoreCase("done")) break;
+            if (Arrays.asList("steak", "ham", "salami", "roast beef", "chicken", "bacon", "american", "provolone", "cheddar", "swiss", "extra meat", "extra cheese").contains(topping.toLowerCase())) {
+                premiumToppings.add(topping);
+            } else {
+                System.out.println("Invalid topping. Please choose a valid premium topping or type 'done' to finish:");
+            }
+        }
+
+        // Select sauces
+        System.out.println("Select your sauces (mayo, mustard, ketchup, ranch, thousand islands, vinaigrette). Type 'done' when finished:");
+        while (true) {
+            String sauce = scanner.nextLine();
+            if (sauce.equalsIgnoreCase("done")) break;
+            if (Arrays.asList("mayo", "mustard", "ketchup", "ranch", "thousand islands", "vinaigrette").contains(sauce.toLowerCase())) {
+                regularToppings.add(sauce);  // Add sauces to regular toppings
+            } else {
+                System.out.println("Invalid sauce. Please choose a valid sauce or type 'done' to finish:");
+            }
+        }
+
+        // Toasted option
+        System.out.println("Would you like the sandwich toasted? (yes/no):");
+        boolean isToasted = scanner.nextLine().equalsIgnoreCase("yes");
+
+        return new Sandwich(size, breadType, regularToppings, premiumToppings, isToasted);
     }
+
 
     private Sandwich chooseSignatureSandwich() {
         System.out.println("Choose a signature sandwich:");
@@ -123,7 +176,7 @@ public class POS implements POSInterface {
     @Override
     public void printReceipt() {
         String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss"));
-        String filename = "receipts/" + timestamp + ".txt";
+        String filename = "receipts.txt";
         try (FileWriter writer = new FileWriter(filename)) {
             writer.write(currentOrder.toString());
         } catch (IOException e) {
