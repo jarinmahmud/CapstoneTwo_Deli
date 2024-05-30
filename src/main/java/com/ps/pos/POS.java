@@ -193,4 +193,3 @@ public class POS implements POSInterface {
         }
     }
 }
-
