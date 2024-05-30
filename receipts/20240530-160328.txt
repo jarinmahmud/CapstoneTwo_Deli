@@ -1,0 +1,4 @@
+Order Details:
+Size: 4", Bread: rye, Toppings: [lettuce, mayo], Premium Toppings: [steak], Toasted: true, Price: $6.50
+Drink Size: small, Flavor: coke, Price: $2.00
+Total Price: $8.50
