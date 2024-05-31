@@ -5,6 +5,7 @@ This project is the point of sales application for DELI-cious, a custom sandwich
 This CLI version of POS will do the basic automation of the sandwich shop allowing customizing sandwiches and orders.
 
 ## Demo Class Diagram:
+Provided on class.
 ![ClassDiagram.png](ClassDiagram.png)
 
 ## Planning chart:
@@ -17,6 +18,7 @@ The project code will follow the outline attached below:
 |                                                           |                  |                   | SignatureSandwich.java<br/>BLTSandwich.java<br/>PhillyCheeseSteakSandwich.java |                    |
 
 ## Project Chart:
+Class orientation for the project:
 ![ProjectStructure.png](ProjectStructure.png)
 
 ## Understanding Class Functions:
