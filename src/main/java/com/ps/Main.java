@@ -32,7 +32,7 @@ public class Main {
                 pos.takeOrder();
                 pos.processPayment();
             } else if (choice == 0) {
-                System.out.println(makeYellow + "THANKS FOR YOUR ORDER. SEE YOU AGAIN." + resetColor);
+                System.out.println(makeYellow + "THANK YOU. SEE YOU AGAIN." + smiley + resetColor);
                 break;
             } else {
                 System.out.println(makeBlue + "Invalid choice. Please try again." + resetColor);

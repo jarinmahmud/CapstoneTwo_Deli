@@ -7,27 +7,27 @@ import java.util.TimerTask;
 
 public class WelcomeWindow {
     public void welcomeWindow() {
-        // Create the frame
-        JFrame frame = new JFrame("Welcome to DELI-cious");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(200, 100);
-        frame.setLayout(new BorderLayout());
+        // Creating the frame
+        JFrame frame = new JFrame("Welcome to DELI-cious"); // sets the frame
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // terminates the frame when user closes
+        frame.setSize(200, 100); // sets size of frame
+        frame.setLayout(new BorderLayout()); // sets layout with no gap border
 
-        // Load the GIF image
-        ImageIcon gifIcon = new ImageIcon("logo.gif");
-        JLabel label = new JLabel(gifIcon);
+        // Loading the GIF image
+        ImageIcon gifIcon = new ImageIcon("logo.gif"); // paints icon from image
+        JLabel label = new JLabel(gifIcon); // sets display area of the specified image to display
 
-        // Add the label with the GIF to the frame
+        // Adding the label with the GIF to the frame
         frame.add(label, BorderLayout.CENTER);
 
-        // Center the frame on the screen
+        // Centering the frame on the screen
         frame.pack(); // Adjusts the frame size to fit the GIF
-        frame.setLocationRelativeTo(null);
+        frame.setLocationRelativeTo(null); // // Sets the location of the window relative to the specified component.
 
-        // Make the frame visible
+        // Making the frame visible
         frame.setVisible(true);
 
-        // Create a timer to close the window after 3 seconds
+        // timer to close the window after 5 seconds
         new Timer().schedule(new TimerTask() {
             @Override
             public void run() {

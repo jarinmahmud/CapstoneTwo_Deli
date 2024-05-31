@@ -106,6 +106,7 @@ Project done by JARIN MAHMUD
 limitations:
 1. memory consuming
 2. testing for weird customer input values
+3. used auto generated suggestions based on knowledge
 
 future upgrade:
 1. Input Value optimization
