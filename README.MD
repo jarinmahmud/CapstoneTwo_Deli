@@ -103,3 +103,12 @@ Readme.md: Contains project details.
 Project done by JARIN MAHMUD
 
 ### ***End of Readme***
+limitations:
+1. memory consuming
+2. testing for weird customer input values
+
+future upgrade:
+1. Input Value optimization
+2. customer profile
+3. order history
+4. quick order

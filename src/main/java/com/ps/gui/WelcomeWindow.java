@@ -8,13 +8,13 @@ import java.util.TimerTask;
 public class WelcomeWindow {
     public void welcomeWindow() {
         // Create the frame
-        JFrame frame = new JFrame("Order Confirmed.");
+        JFrame frame = new JFrame("Welcome to DELI-cious");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(300, 200);
+        frame.setSize(200, 100);
         frame.setLayout(new BorderLayout());
 
         // Load the GIF image
-        ImageIcon gifIcon = new ImageIcon("thank you.gif");
+        ImageIcon gifIcon = new ImageIcon("logo.gif");
         JLabel label = new JLabel(gifIcon);
 
         // Add the label with the GIF to the frame
@@ -33,6 +33,7 @@ public class WelcomeWindow {
             public void run() {
                 frame.dispose();
             }
-        }, 3000);
+        }, 5000);
     }
+
 }
