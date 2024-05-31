@@ -1,6 +1,4 @@
 package com.ps.menu;
-
-
 public class Drink {
 
     //variables for drinks

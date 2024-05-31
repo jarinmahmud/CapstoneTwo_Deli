@@ -138,7 +138,8 @@ public class POS implements POSInterface {
 
         // Selecting premium toppings
         List<String> premiumToppings = new ArrayList<>(); // arraylist of premium topping
-        System.out.println(makeYellow + "SELECT PREMIUM TOPPING AND CHEESE: " +resetColor+ " \n steak \n ham \n salami \n roasted beef \n chicken \n bacon \n american \n provolone \n cheddar \n swiss \n extra meat \n extra cheese \n Type 'done' when finished.");
+        System.out.println(makeYellow + "SELECT PREMIUM TOPPING AND CHEESE: " +resetColor+ " \n steak \n ham \n salami \n roasted beef \n chicken \n bacon \n american \n provolone" +
+                " \n cheddar \n swiss \n extra meat \n extra cheese \n Type 'done' when finished.");
         while (true) {
             String topping = scanner.nextLine();
             if (topping.equalsIgnoreCase("done")) break;

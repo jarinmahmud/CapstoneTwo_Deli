@@ -1,6 +1,4 @@
 package com.ps.menu;
-
-
 import java.util.List;
 
 public class Sandwich {
@@ -64,7 +62,6 @@ public class Sandwich {
         }
         return extraCost;
     }
-
     private double getPremiumToppingCost(String size, double cost4, double cost8, double cost12) {
         switch (size) {
             case "4":
@@ -77,16 +74,13 @@ public class Sandwich {
                 return 0;
         }
     }
-
     public double getTotalPrice() {
         return basePrice + extraCost;
     }
-
     @Override
     public String toString() {
         return String.format("Size: %s\", Bread: %s, Toppings: %s, Premium Toppings: %s, Toasted: %b, Price: $%.2f",
                 size, breadType, regularToppings.toString(), premiumToppings.toString(), isToasted, getTotalPrice());
     }
-
     // Getters and setters omitted for enhanced redability and memory optimization
 }

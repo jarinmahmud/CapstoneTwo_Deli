@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-
         //Displaying the Welcome GUI
         WelcomeWindow open = new WelcomeWindow();
         open.welcomeWindow();
@@ -19,7 +18,6 @@ public class Main {
         //Taking value for order
         POS pos = new POS();
         Scanner scanner = new Scanner(System.in);
-
         while (true) {
             //Home Screen
             System.out.println(makeYellow + "Welcome to DELI-cious POS" + resetColor);
@@ -39,7 +37,6 @@ public class Main {
             }
         }
         scanner.close();
-
         //Ensures System Exit
         System.exit(0);
 

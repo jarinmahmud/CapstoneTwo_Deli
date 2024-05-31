@@ -1,9 +1,6 @@
 package com.ps.menu;
-
 import java.util.List;
-
 public class Order {
-
     //List of common sector of menu
     private List<Sandwich> sandwiches;
     private List<Drink> drinks;
@@ -14,7 +11,6 @@ public class Order {
         this.drinks = drinks;
         this.chips = chips;
     }
-
     public double calculateTotalPrice() {
         double total = 0;
         for (Sandwich sandwich : sandwiches) {
@@ -28,7 +24,6 @@ public class Order {
         }
         return total;
     }
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
