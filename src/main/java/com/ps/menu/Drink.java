@@ -2,6 +2,8 @@ package com.ps.menu;
 
 
 public class Drink {
+
+    //variables for drinks
     private String size;
     private String flavor;
     private double price;

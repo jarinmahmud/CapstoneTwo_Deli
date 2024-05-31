@@ -2,6 +2,8 @@ package com.ps.menu;
 
 
 public class Chip {
+
+    //declaring variable for chips
     private String type;
     private double price;
 

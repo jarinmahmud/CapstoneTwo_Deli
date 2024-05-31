@@ -3,6 +3,8 @@ package com.ps.menu;
 import java.util.List;
 
 public class Order {
+
+    //List of common sector of menu
     private List<Sandwich> sandwiches;
     private List<Drink> drinks;
     private List<Chip> chips;
@@ -30,7 +32,7 @@ public class Order {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Order Details:\n");
+        sb.append("Order Details:\n"); // append() helps to concatenate and to chain order details
         for (Sandwich sandwich : sandwiches) {
             sb.append(sandwich.toString()).append("\n");
         }

@@ -40,6 +40,7 @@ public class POS implements POSInterface {
             System.out.println(makeYellow + "............." + resetColor);
             System.out.println("(1) Create a custom sandwich");
             System.out.println("(2) Choose a signature sandwich");
+            System.out.println("(3) Only Drink and/or Chips");
 
             //enter choice
             int choice = scanner.nextInt();
@@ -48,6 +49,10 @@ public class POS implements POSInterface {
                 sandwich = createSandwich(); // calls to create sandwich
             } else if (choice == 2) {
                 sandwich = chooseSignatureSandwich(); // calls to create custom sandwich
+            }else if  (choice == 3) {
+            break;
+            }else{
+                System.out.println(makeBlue + "Invalid Option." +resetColor);
             }
             //adding more sandwich
             if (sandwich != null) {
@@ -88,12 +93,35 @@ public class POS implements POSInterface {
 
         // Selecting bread type
         System.out.println(makeYellow + "SELECT BREAD TYPE:" +resetColor + " \n white \n wheat \n rye \n wrap ");
-
         String breadType = scanner.nextLine();
+            switch (breadType.toLowerCase()) {
+                case "white":
+                    break;
+                case "wheat":
+                    break;
+                case "rye":
+                    break;
+                case "wrap":
+                    break;
+                default:
+                    System.out.println(makeBlue + "Invalid Choice." +resetColor);
+                    return null;
+            }
 
         // Selecting sandwich size
         System.out.println(makeYellow + "SELECT SANDWICH SIZE:" +resetColor + "\n 4 \n 8 \n 12 ");
         String size = scanner.nextLine();
+        switch (size.toLowerCase()) {
+            case "4":
+                break;
+            case "8":
+                break;
+            case "12":
+                break;
+            default:
+                System.out.println(makeBlue + "Invalid Choice." +resetColor);
+                return null;
+        }
 
         // Selecting regular toppings
         List<String> regularToppings = new ArrayList<>(); // arraylist of toppings
@@ -110,7 +138,7 @@ public class POS implements POSInterface {
 
         // Selecting premium toppings
         List<String> premiumToppings = new ArrayList<>(); // arraylist of premium topping
-        System.out.println(makeYellow + "SELECT PREMIUM TOPPING: " +resetColor+ " \n steak \n ham \n salami \n roasted beef \n chicken \n bacon \n american \n provolone \n cheddar \n swiss \n extra meat \n extra cheese \n Type 'done' when finished.");
+        System.out.println(makeYellow + "SELECT PREMIUM TOPPING AND CHEESE: " +resetColor+ " \n steak \n ham \n salami \n roasted beef \n chicken \n bacon \n american \n provolone \n cheddar \n swiss \n extra meat \n extra cheese \n Type 'done' when finished.");
         while (true) {
             String topping = scanner.nextLine();
             if (topping.equalsIgnoreCase("done")) break;
@@ -161,15 +189,48 @@ public class POS implements POSInterface {
     private Drink createDrink() {
         System.out.println(makeYellow + "ENTER DRINK SIZE:" + resetColor + " \n small \n medium \n large");
         String size = scanner.next();
-        System.out.println(makeYellow + "ENTER DRINK NAME:" +resetColor);
+        switch (size.toLowerCase()) {
+            case "small":
+                break;
+            case "medium":
+                break;
+            case "large":
+                break;
+            default:
+                System.out.println(makeBlue + "Invalid Choice." +resetColor);
+                return null;
+        }
+        System.out.println(makeYellow + "ENTER YOUR PREFFERED DRINK:" +resetColor + "\n coke \n fanta \n gatorade");
         String drinkName = scanner.next();
+        switch (drinkName.toLowerCase()) {
+            case "coke":
+                break;
+            case "fanta":
+                break;
+            case "gatorade":
+                break;
+            default:
+                System.out.println(makeBlue + "Invalid Choice." +resetColor);
+                return null;
+        }
         return new Drink(size, drinkName);
     }
 
     //Choosing Chips
     private Chip createChip() {
-        System.out.println(makeYellow + "ENTER CHIPS TYPE:" + resetColor);
+        System.out.println(makeYellow + "ENTER CHIPS TYPE:" + resetColor + "\n potato \n sweet potato \n banana");
         String type = scanner.next();
+        switch (type.toLowerCase()) {
+            case "potato":
+                break;
+            case "sweet potato":
+                break;
+            case "banana":
+                break;
+            default:
+                System.out.println(makeBlue + "Invalid Choice." +resetColor);
+                return null;
+        }
         return new Chip(type);
     }
 

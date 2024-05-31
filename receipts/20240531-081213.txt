@@ -1,0 +1,4 @@
+Order Details:
+Drink Size: small, Flavor: coke, Price: $2.00
+Chip Type: potato, Price: $1.50
+Total Price: $3.50

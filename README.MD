@@ -104,13 +104,13 @@ Project done by JARIN MAHMUD
 
 ### ***End of Readme***
 limitations:
-1. memory consuming
-2. testing for weird customer input values
-3. for adding multiple drink and chips, options are avoided for repeated similar coding and less redability/complexity
-3. used auto generated suggestions based on knowledge
+1. custom the signature sandwiches
+2. testing and upgradation for weird values
 
 future upgrade:
 1. Input Value optimization
+2. Upgrade Menu
 2. customer profile
 3. order history
 4. quick order
+5. memory optimization

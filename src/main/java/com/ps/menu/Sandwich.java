@@ -4,6 +4,7 @@ package com.ps.menu;
 import java.util.List;
 
 public class Sandwich {
+    //declaring variables
     private String size;
     private String breadType;
     private List<String> regularToppings;
@@ -87,5 +88,5 @@ public class Sandwich {
                 size, breadType, regularToppings.toString(), premiumToppings.toString(), isToasted, getTotalPrice());
     }
 
-    // Getters and setters omitted for brevity
+    // Getters and setters omitted for enhanced redability and memory optimization
 }

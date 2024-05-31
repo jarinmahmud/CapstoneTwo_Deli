@@ -1,0 +1,5 @@
+Order Details:
+Size: 12", Bread: wheat, Toppings: [lettuce, onions, tomatoes, mayo, ranch], Premium Toppings: [salami, extra meat], Toasted: true, Price: $13.00
+Drink Size: medium, Flavor: fanta, Price: $2.50
+Chip Type: POtato, Price: $1.50
+Total Price: $17.00
