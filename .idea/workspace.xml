@@ -6,13 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ad069823-0eaf-4bd3-a504-2c15141e056d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.MD" beforeDir="false" afterPath="$PROJECT_DIR$/README.MD" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ps/menu/BLTSandwich.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ps/menu/BLTSandwich.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ps/menu/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ps/menu/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ps/menu/PhillyCheeseSteakSandwich.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ps/menu/PhillyCheeseSteakSandwich.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ps/menu/Sandwich.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ps/menu/Sandwich.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ps/menu/SignatureSandwich.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ps/menu/SignatureSandwich.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ps/pos/POS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ps/pos/POS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.MD" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
