@@ -1,0 +1,3 @@
+Order Details:
+Size: 4", Bread: wheat, Toppings: [], Premium Toppings: [], Toasted: false, Price: $5.50
+Total Price: $5.50

@@ -1,9 +1,16 @@
 package com.ps;
+
+import com.ps.gui.ClosingWindow;
+import com.ps.gui.WelcomeWindow;
 import com.ps.pos.*;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+
+        WelcomeWindow open = new WelcomeWindow();
+        open.welcomeWindow();
+
         POS pos = new POS();
         Scanner scanner = new Scanner(System.in);
 
@@ -17,12 +24,19 @@ public class Main {
                 pos.takeOrder();
                 pos.processPayment();
             } else if (choice == 0) {
-                System.out.println("Exiting the application...");
+                System.out.println("Exiting the application.");
                 break;
             } else {
                 System.out.println("Invalid choice. Please try again.");
             }
         }
+
         scanner.close();
+
+        ClosingWindow exit = new ClosingWindow();
+        exit.closingWindow();
+
+
+
     }
 }

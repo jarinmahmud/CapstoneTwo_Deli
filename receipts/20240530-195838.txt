@@ -1,0 +1,3 @@
+Order Details:
+Size: 4", Bread: white, Toppings: [], Premium Toppings: [], Toasted: true, Price: $5.50
+Total Price: $5.50
