@@ -1,0 +1,5 @@
+Order Details:
+Size: 12", Bread: rye, Toppings: [peppers, ranch], Premium Toppings: [ham, salami, swiss], Toasted: true, Price: $16.75
+Drink Size: small, Flavor: coke, Price: $2.00
+Chip Type: potato, Price: $1.50
+Total Price: $20.25

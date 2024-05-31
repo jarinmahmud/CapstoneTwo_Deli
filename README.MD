@@ -106,6 +106,7 @@ Project done by JARIN MAHMUD
 limitations:
 1. memory consuming
 2. testing for weird customer input values
+3. for adding multiple drink and chips, options are avoided for repeated similar coding and less redability/complexity
 3. used auto generated suggestions based on knowledge
 
 future upgrade:

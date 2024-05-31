@@ -1,0 +1,5 @@
+Order Details:
+Size: 4", Bread: white, Toppings: [onions, ketchup], Premium Toppings: [swiss], Toasted: true, Price: $6.25
+Size: 8", Bread: white, Toppings: [peppers, mayo], Premium Toppings: [steak, american], Toasted: true, Price: $10.50
+Drink Size: large, Flavor: coke, Price: $3.00
+Total Price: $19.75

@@ -1,7 +1,6 @@
 package com.ps.pos;
 
 import com.ps.menu.*;
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -16,41 +15,53 @@ public class POS implements POSInterface {
     private Order currentOrder;
     private Scanner scanner;
 
+    //Color variable for font
+    String resetColor = "\u001B[0m"; // reset variable of font color
+    String makeYellow = "\u001B[33m"; // setting variable for yellow font color
+    String makeBlue = "\u001B[34m"; // setting variable for blue font color
+
     public POS() {
         this.scanner = new Scanner(System.in);
     }
 
     @Override
+    // taking order method
     public void takeOrder() {
+
+        //Lists to hold menu items as arraylist
         List<Sandwich> sandwiches = new ArrayList<>();
         List<Drink> drinks = new ArrayList<>();
         List<Chip> chips = new ArrayList<>();
 
         boolean moreSandwiches = true;
         while (moreSandwiches) {
-            System.out.println("1) Create a custom sandwich");
-            System.out.println("2) Choose a signature sandwich");
+            //Order Screen
+            System.out.println(makeYellow + "Order Screen" + resetColor);
+            System.out.println(makeYellow + "............." + resetColor);
+            System.out.println("(1) Create a custom sandwich");
+            System.out.println("(2) Choose a signature sandwich");
+
+            //enter choice
             int choice = scanner.nextInt();
             Sandwich sandwich = null;
             if (choice == 1) {
-                sandwich = createSandwich();
+                sandwich = createSandwich(); // calls to create sandwich
             } else if (choice == 2) {
-                sandwich = chooseSignatureSandwich();
-                if (sandwich != null) {
-                    customizeSandwich(sandwich);
-                }
+                sandwich = chooseSignatureSandwich(); // calls to create custom sandwich
             }
+            //adding more sandwich
             if (sandwich != null) {
                 sandwiches.add(sandwich);
             }
 
-            System.out.println("Would you like to add another sandwich? (yes/no)");
+            System.out.println(makeYellow + "Would you like to add another sandwich? (yes/no)" + resetColor);
             moreSandwiches = scanner.next().equalsIgnoreCase("yes");
         }
 
+        // adding drinks
         boolean moreDrinks = true;
         while (moreDrinks) {
-            System.out.println("Would you like to add a drink? (yes/no)");
+            System.out.println(makeYellow + "Would you like to add a drink? (yes/no)" + resetColor);
             if (scanner.next().equalsIgnoreCase("yes")) {
                 drinks.add(createDrink());
             } else {
@@ -58,80 +69,82 @@ public class POS implements POSInterface {
             }
         }
 
+        //adding chips
         boolean moreChips = true;
         while (moreChips) {
-            System.out.println("Would you like to add chips? (yes/no)");
+            System.out.println(makeYellow + "Would you like to add chips? (yes/no)" + resetColor);
             if (scanner.next().equalsIgnoreCase("yes")) {
                 chips.add(createChip());
             } else {
                 moreChips = false;
             }
         }
-
         currentOrder = new Order(sandwiches, drinks, chips);
     }
 
+    // creating sandwich method
     private Sandwich createSandwich() {
-        scanner.nextLine();  // Consume the newline character left over from previous input
+        scanner.nextLine();  //newline
 
-        // Select bread type
-        System.out.println("Select your bread type (white, wheat, rye, wrap):");
+        // Selecting bread type
+        System.out.println(makeYellow + "SELECT BREAD TYPE:" +resetColor + " \n white \n wheat \n rye \n wrap ");
+
         String breadType = scanner.nextLine();
 
-        // Select sandwich size
-        System.out.println("Select sandwich size (4, 8, 12):");
+        // Selecting sandwich size
+        System.out.println(makeYellow + "SELECT SANDWICH SIZE:" +resetColor + "\n 4 \n 8 \n 12 ");
         String size = scanner.nextLine();
 
-        // Select regular toppings
-        List<String> regularToppings = new ArrayList<>();
-        System.out.println("Select your regular toppings (lettuce, peppers, onions, tomatoes, jalapenos, cucumbers, pickles, guacamole, mushrooms). Type 'done' when finished:");
+        // Selecting regular toppings
+        List<String> regularToppings = new ArrayList<>(); // arraylist of toppings
+        System.out.println(makeYellow + "SELECT REGULAR TOPPING:" +resetColor+ " \n lettuce \n peppers \n onions \n tomatoes \n jalapenos \n cucumbers \n pickles \n guacamole \n mushrooms \n Type 'done' when finished.");
         while (true) {
             String topping = scanner.nextLine();
             if (topping.equalsIgnoreCase("done")) break;
             if (Arrays.asList("lettuce", "peppers", "onions", "tomatoes", "jalapenos", "cucumbers", "pickles", "guacamole", "mushrooms").contains(topping.toLowerCase())) {
                 regularToppings.add(topping);
             } else {
-                System.out.println("Invalid topping. Please choose a valid regular topping or type 'done' to finish:");
+                System.out.println(makeBlue + "Invalid topping. Please choose a valid regular topping or type 'done' to finish:" +resetColor);
             }
         }
 
-        // Select premium toppings
-        List<String> premiumToppings = new ArrayList<>();
-        System.out.println("Select your premium toppings (steak, ham, salami, roast beef, chicken, bacon, american, provolone, cheddar, swiss, extra meat, extra cheese). Type 'done' when finished:");
+        // Selecting premium toppings
+        List<String> premiumToppings = new ArrayList<>(); // arraylist of premium topping
+        System.out.println(makeYellow + "SELECT PREMIUM TOPPING: " +resetColor+ " \n steak \n ham \n salami \n roasted beef \n chicken \n bacon \n american \n provolone \n cheddar \n swiss \n extra meat \n extra cheese \n Type 'done' when finished.");
         while (true) {
             String topping = scanner.nextLine();
             if (topping.equalsIgnoreCase("done")) break;
             if (Arrays.asList("steak", "ham", "salami", "roast beef", "chicken", "bacon", "american", "provolone", "cheddar", "swiss", "extra meat", "extra cheese").contains(topping.toLowerCase())) {
                 premiumToppings.add(topping);
             } else {
-                System.out.println("Invalid topping. Please choose a valid premium topping or type 'done' to finish:");
+                System.out.println(makeBlue + "Invalid topping. Please choose a valid premium topping or type 'done' to finish:" +resetColor);
             }
         }
 
-        // Select sauces
-        System.out.println("Select your sauces (mayo, mustard, ketchup, ranch, thousand islands, vinaigrette). Type 'done' when finished:");
+        // Selecting sauces
+        System.out.println(makeYellow + "SELECT SAUCES:  "+resetColor+ "\n mayo \n mustard \n ketchup \n ranch \n thousand islands \n vinaigrette \n Type 'done' when finished. " );
         while (true) {
             String sauce = scanner.nextLine();
             if (sauce.equalsIgnoreCase("done")) break;
             if (Arrays.asList("mayo", "mustard", "ketchup", "ranch", "thousand islands", "vinaigrette").contains(sauce.toLowerCase())) {
                 regularToppings.add(sauce);  // Add sauces to regular toppings
             } else {
-                System.out.println("Invalid sauce. Please choose a valid sauce or type 'done' to finish:");
+                System.out.println(makeBlue + "Invalid sauce. Please choose a valid sauce or type 'done' to finish:" +resetColor);
             }
         }
 
         // Toasted option
-        System.out.println("Would you like the sandwich toasted? (yes/no):");
+        System.out.println(makeYellow + "Would you like the sandwich toasted? (yes/no):" +resetColor);
         boolean isToasted = scanner.nextLine().equalsIgnoreCase("yes");
 
         return new Sandwich(size, breadType, regularToppings, premiumToppings, isToasted);
     }
 
-
+    // choosing signature sandwich method
     private Sandwich chooseSignatureSandwich() {
-        System.out.println("Choose a signature sandwich:");
-        System.out.println("1) BLT");
-        System.out.println("2) Philly Cheese Steak");
+        System.out.println(makeYellow + "Choose a signature sandwich:" +resetColor);
+        System.out.println("(1) BLT");
+        System.out.println("(2) Philly Cheese Steak");
         int choice = scanner.nextInt();
         switch (choice) {
             case 1:
@@ -139,48 +152,48 @@ public class POS implements POSInterface {
             case 2:
                 return new PhillyCheeseSteakSandwich();
             default:
-                System.out.println("Invalid choice. Returning to menu.");
+                System.out.println(makeBlue + "Invalid choice. Returning to menu." +resetColor);
                 return null;
         }
     }
 
-    private void customizeSandwich(Sandwich sandwich) {
-        // Implement sandwich customization logic
-    }
-
+    //choosing drink
     private Drink createDrink() {
-        System.out.println("Enter drink size (small, medium, large):");
+        System.out.println(makeYellow + "ENTER DRINK SIZE:" + resetColor + " \n small \n medium \n large");
         String size = scanner.next();
-        System.out.println("Enter drink flavor:");
-        String flavor = scanner.next();
-        return new Drink(size, flavor);
+        System.out.println(makeYellow + "ENTER DRINK NAME:" +resetColor);
+        String drinkName = scanner.next();
+        return new Drink(size, drinkName);
     }
 
+    //Choosing Chips
     private Chip createChip() {
-        System.out.println("Enter chip type:");
+        System.out.println(makeYellow + "ENTER CHIPS TYPE:" + resetColor);
         String type = scanner.next();
         return new Chip(type);
     }
 
+    //Processing Payment
     @Override
     public void processPayment() {
         System.out.println(currentOrder);
-        System.out.println("Confirm order? (yes/no):");
+        System.out.println(makeYellow + "Confirm order? (yes/no):" +resetColor);
         if (scanner.next().equalsIgnoreCase("yes")) {
             printReceipt();
-            System.out.println("Order confirmed.");
+            System.out.println(makeBlue + "Order confirmed." +resetColor);
         } else {
-            System.out.println("Order cancelled.");
+            System.out.println(makeBlue + "Order cancelled." +resetColor);
         }
     }
 
+    //printing and storing receipt
     @Override
     public void printReceipt() {
         String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss"));
         String directoryPath = "receipts";
         String filename = directoryPath + "/" + timestamp + ".txt";
 
-        // Create the receipts directory if it doesn't exist
+        // Creating the receipts directory if it doesn't exist
         File directory = new File(directoryPath);
         if (!directory.exists()) {
             directory.mkdirs();
