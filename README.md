@@ -36,6 +36,7 @@ WelcomeWindow.java: contains GUI method to display logo in welcome window. <br/>
 Readme.md: Contains project details.<br/>
 Receipts: Folder for storing receipts
 
+
 ## Code Snippets:
 
 ### Main.java:
@@ -78,9 +79,15 @@ Receipts: Folder for storing receipts
 ![WelcomeWindow.png](WelcomeWindow.png)
 
 ### Receipts: 
+Folder and file for receipts:
 ![Receipts.png](Receipts.png)
 
 ## Sample Input and Output:
+### GUI:
+![GUI.png](GUI.png)
+
+
+### CLI Output:
 ![OutputOne.png](OutputOne.png)
 ![OutputTwo.png](OutputTwo.png)
 ![OutputThree.png](OutputThree.png)
